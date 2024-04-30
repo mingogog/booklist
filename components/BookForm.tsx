@@ -1,10 +1,10 @@
 import { useForm, SubmitHandler } from "react-hook-form"
 import React from 'react'
 import { categoryList } from '../consts/list'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addBook, updateBook } from "@/redux/actions/bookActions";
 import { v4 as uuidv4 } from 'uuid';
-import { Book } from "@/redux/types";
+import { Book } from "@/types/book";
 
 type Props = {
     formData: Book | null

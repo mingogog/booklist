@@ -1,5 +1,5 @@
 import { createAction } from "@reduxjs/toolkit"
-import { Book } from "../types"
+import { Book } from "../../types/book"
 
 export const addBook = createAction<Book>('book/addBook')
 export const updateBook = createAction<Book>('book/updateBook')

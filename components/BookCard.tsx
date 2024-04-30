@@ -1,36 +1,7 @@
 import React, { FC } from 'react'
 import { useDispatch } from 'react-redux';
-import { deleteBook } from "@/redux/actions/bookActions";
-
-const categoryList = [
-    "FICTION",
-    "NON-FICTION",
-    "SCIENCE",
-    "HISTORY",
-    "BIOGRAPHY",
-    "TECHNOLOGY",
-    "BUSINESS",
-    "SELF-HELP",
-    "FANTASY",
-    "ROMANCE",
-    "THRILLER",
-    "HORROR",
-    "MYSTERY",
-    "ADVENTURE",
-    "COMEDY",
-    "DRAMA",
-    "ACTION",
-    "CRIME",
-    "DOCUMENTARY",
-    "FAMILY",
-    "MUSICAL",
-    "SCI-FI",
-    "SPORT",
-    "WAR",
-    "WESTERN",
-    "ANIME",
-    "CARTOON",
-] as const;
+import { deleteBook } from "@/redux/actions/bookActions"
+import { categoryList } from '@/consts/list';
 
 export type BookType = {
     id: string,
@@ -43,7 +14,7 @@ export type BookType = {
 
 export const BookCard:FC<BookType> = ({id, name, price, category, description, editBook}:BookType) => {
     const dispatch = useDispatch();
-    const handleRemove = (e) => {
+    const handleRemove = (e: React.MouseEvent) => {
         e.stopPropagation();
         dispatch(deleteBook(id))
     }

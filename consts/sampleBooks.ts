@@ -1,4 +1,4 @@
-import { Book } from "@/redux/types";
+import { Book } from "@/types/book";
 
 export const sampleBooks = [
     {

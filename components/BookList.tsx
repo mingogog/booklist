@@ -3,11 +3,14 @@ import { useSelector } from 'react-redux';
 import { BookCard } from './BookCard';;
 import { BookForm } from './BookForm';
 import { useModal } from '@/hooks/useModal';
+import { RootState } from '@/redux/store';
+import { Book } from '@/types/book';
 
 export const BookList = () => {
-  const books = useSelector(state => state.bookList.books);
+  const books = useSelector((state: RootState) => state.bookList.books);
+
   const {Modal, openModal: showBookForm, closeModal: closeBookForm} = useModal();
-  const [formData, setFormData] = useState(null);
+  const [formData, setFormData] = useState<Book | null>(null);
   const [modalTitle, setmodalTitle] = useState('');
 
   const addBookForm = () => {
@@ -16,16 +19,15 @@ export const BookList = () => {
     showBookForm();
   }
 
-  const editBookForm = (book) => {
+  const editBookForm = (book: Book) => {
     setFormData(book);
     setmodalTitle('Book List / Edit Book')
     showBookForm();
-    console.log('edit book', book)
   }
   return (
     <div className="grid grid-cols-[repeat(auto-fill,22rem)] gap-4 justify-center">
       <div onClick={addBookForm} className='h-72 cursor-pointer text-6xl rounded-xl border-slate-200 px-12 py-8 right flex justify-center items-center hover:text-opacity-75 text-slate-600 border-dashed border-4 hover:bg-slate-50'>
-      +
+        +
       </div>
       {
         books.map((book, index) => ( 

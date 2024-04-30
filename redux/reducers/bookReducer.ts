@@ -1,6 +1,6 @@
 import { createReducer, PayloadAction } from '@reduxjs/toolkit';
 import { addBook, deleteBook, updateBook, initBooks } from '../actions/bookActions';
-import { Book } from '../types';
+import { Book } from '../../types/book';
 import { HYDRATE } from 'next-redux-wrapper';
 
 interface BookState {
