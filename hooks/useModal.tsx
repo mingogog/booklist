@@ -23,14 +23,14 @@ export const useModal = (option?: Option) => {
     setIsModalOpen(false)
     option?.onClose && option.onClose()
   }, [option])
-  
-  const CustomModal: FC<Props> = ({children, title}:Props) => {
+
+  const CustomModal: FC<Props> = ({ children, title }: Props) => {
     return (
-      isModalOpen&&
+      isModalOpen &&
       <div className="z-10 inset-0 fixed">
-      <div
-        className="flex items-center justify-center min-h-screen bg-gray-200 bg-opacity-75 transition-opacity"
-      >
+        <div
+          className="flex items-center justify-center min-h-screen bg-gray-200 bg-opacity-75 transition-opacity"
+        >
           <div
             className="flex flex-col items-center justify-between bg-white py-20 rounded-xl relative"
           >
@@ -39,16 +39,16 @@ export const useModal = (option?: Option) => {
             >
               {title}
             </div>
-              <div
+            <div
               onClick={closeModal}
-                className="text-slate-300 absolute top-1 right-3 text-2xl hover:text-slate-500 cursor-pointer font-light"
-              >
-                x
-              </div>
-              {children}
+              className="text-slate-300 absolute top-1 right-3 text-2xl hover:text-slate-500 cursor-pointer font-light"
+            >
+              x
+            </div>
+            {children}
           </div>
+        </div>
       </div>
-  </div>
     )
   };
 

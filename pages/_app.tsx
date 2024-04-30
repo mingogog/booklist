@@ -3,17 +3,15 @@ import store from '../redux/store';
 import { AppProps } from 'next/app';
 import { createWrapper } from 'next-redux-wrapper';
 import "@/styles/globals.css";
+import { wrapper } from '@/redux/wrapper';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, ...rest }: AppProps) {
+  const { store, props } = wrapper.useWrappedStore(rest);
   return (
     <Provider store={store}>
-      <Component {...pageProps} />
+      <Component {...props.pageProps} />
     </Provider>
   );
 }
 
-const makeStore = () => store;
-const wrapper = createWrapper(makeStore);
-
-export default wrapper.withRedux(MyApp);
-// export default MyApp
+export default App
